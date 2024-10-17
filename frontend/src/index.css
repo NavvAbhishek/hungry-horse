@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.blueBtn {
+  @apply bg-blue text-white py-[5px] px-3 rounded;
+}
+.blueBtn:hover {
+  @apply bg-[#002437]; 
+}
+
+.yellowBtn {
+  @apply bg-yellow text-black py-[5px] px-3 rounded;
+}
+.yellowBtn:hover {
+  @apply bg-[#e0a828]; 
+}
+
+.navActive {
+  @apply pb-[1px] border-b-[2.5px] border-red
+}
