@@ -29,3 +29,8 @@ body {
 .navActive {
   @apply pb-[1px] border-b-[2.5px] border-red
 }
+
+/* Hide scrollbar for all browsers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
