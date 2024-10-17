@@ -35,7 +35,7 @@ const Navbar = () => {
           <FaBasketShopping className="h-5 w-5" />
           <div className="absolute min-w-[10px] min-h-[10px] bg-red rounded-lg top-[-8px] right-[-8px] "></div>
         </div>
-        <button className="blueBtn">Sign In</button>
+        <button className="blueBtn py-[5px] px-3">Sign In</button>
       </div>
     </div>
   );
