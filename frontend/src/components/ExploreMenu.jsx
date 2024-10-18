@@ -1,11 +1,6 @@
 import PropTypes from "prop-types";
 import { menu_list } from "../assets/assests";
 
-ExploreMenu.propTypes = {
-  category: PropTypes.string.isRequired,
-  setCategory: PropTypes.func.isRequired,
-};
-
 const ExploreMenu = ({ category, setCategory }) => {
   return (
     <div className="flex flex-col gap-5 mx-28">
@@ -44,6 +39,11 @@ const ExploreMenu = ({ category, setCategory }) => {
       <hr className="my-3 h-[2px] bg-cream border-none" />
     </div>
   );
+};
+
+ExploreMenu.propTypes = {
+  category: PropTypes.string.isRequired,
+  setCategory: PropTypes.func.isRequired,
 };
 
 export default ExploreMenu;
