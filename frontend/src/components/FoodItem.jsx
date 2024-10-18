@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useContext } from "react";
 import { FaStar, FaRegStarHalfStroke } from "react-icons/fa6";
 import { IoMdAdd } from "react-icons/io";
 import { HiOutlineMinus } from "react-icons/hi2";
+import { StoreContext } from "../context/StoreContext";
 
 const FoodItem = ({ id, name, price, description, image }) => {
-  const [itemCount, setItemCount] = useState(0);
+  const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
 
   return (
     <div className="bg-white shadow-lg rounded-lg overflow-hidden">
@@ -15,20 +16,20 @@ const FoodItem = ({ id, name, price, description, image }) => {
           className="w-full h-60 object-cover cursor-pointer"
           alt="food_item_image"
         />
-        {!itemCount ? (
+        {!cartItems[id] ? (
           <IoMdAdd
-            onClick={() => setItemCount((prev) => prev + 1)}
+            onClick={()=>addToCart(id)}
             className="absolute right-4 bottom-4 w-6 h-6 rounded-full p-[2px] bg-white cursor-pointer"
           />
         ) : (
           <div className="flex items-center gap-2 absolute right-4 bottom-4 bg-white p-1 rounded-xl">
             <HiOutlineMinus
-              onClick={() => setItemCount((prev) => prev - 1)}
+              onClick={()=>removeFromCart(id)}
               className="text-green-900 w-5 h-5 cursor-pointer"
             />
-           <p className=""> {itemCount}</p>
+            <p className=""> {cartItems[id]}</p>
             <IoMdAdd
-              onClick={() => setItemCount((prev) => prev + 1)}
+              onClick={()=>addToCart(id)}
               className="text-red h-5 w-5 cursor-pointer"
             />
           </div>
@@ -53,7 +54,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
 FoodItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
 };
