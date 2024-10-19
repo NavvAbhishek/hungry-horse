@@ -7,7 +7,7 @@ const Navbar = () => {
   const [menu, setMenu] = useState("home");
 
   return (
-    <div className="bg-gray-100 flex justify-around items-center">
+    <div className="bg-lightCream flex justify-around items-center">
       <img src={assets.logo} width={90} className="cursor-pointer" />
       <ul className="flex gap-4 cursor-pointer">
         <li

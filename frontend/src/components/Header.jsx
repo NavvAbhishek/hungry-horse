@@ -2,11 +2,11 @@ import { assets } from "../assets/assests";
 
 const Header = () => {
   return (
-    <section className="relative bg-gray-50 py-16 sm:py-20 md:py-24">
+    <section className="relative py-16 sm:py-20 md:py-24">
       <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-12 lg:px-20">
         {/* Text Section */}
         <div className="md:w-1/2 text-center md:text-left">
-          <h1 className="text-blue text-3xl sm:text-4xl md:text-5xl font-bold textblack mb-6">
+          <h1 className="text-darkBlue text-3xl sm:text-4xl md:text-5xl font-bold textblack mb-6">
             Yummy Food Here!
           </h1>
           <p className="text-md sm:text-xl text-gray-600 mb-8">

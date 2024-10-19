@@ -8,7 +8,7 @@ const FoodDisplay = ({ category }) => {
 
   return (
     <div className="mx-28">
-      <h2 className="text-4xl font-bold capitalize mt-6">
+      <h2 className="text-4xl font-bold capitalize mt-6 text-darkBlue">
         Top dishes near you
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-8">

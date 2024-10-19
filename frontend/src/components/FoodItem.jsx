@@ -25,27 +25,27 @@ const FoodItem = ({ id, name, price, description, image }) => {
           <div className="flex items-center gap-2 absolute right-4 bottom-4 bg-white p-1 rounded-xl">
             <HiOutlineMinus
               onClick={()=>removeFromCart(id)}
-              className="text-green-900 w-5 h-5 cursor-pointer"
+              className="text-green-900 w-5 h-5 cursor-pointer border-2 rounded-full border-none bg-green-200"
             />
             <p className=""> {cartItems[id]}</p>
             <IoMdAdd
               onClick={()=>addToCart(id)}
-              className="text-red h-5 w-5 cursor-pointer"
+              className="text-lightRed h-5 w-5 cursor-pointer border-2 rounded-full border-none bg-red-200"
             />
           </div>
         )}
       </div>
       <div className="p-4">
-        <p className="text-lg font-bold text-blue cursor-pointer">{name}</p>
+        <p className="text-lg font-bold text-darkBlue cursor-pointer">{name}</p>
         <div className="flex items-center mb-2">
-          <FaStar className="text-red" />
-          <FaStar className="text-red" />
-          <FaStar className="text-red" />
-          <FaStar className="text-red" />
-          <FaRegStarHalfStroke className="text-red" />
+          <FaStar className="text-lightRed" />
+          <FaStar className="text-lightRed" />
+          <FaStar className="text-lightRed" />
+          <FaStar className="text-lightRed" />
+          <FaRegStarHalfStroke className="text-lightRed" />
         </div>
-        <p className="text-sm text-gray-500 mb-4">{description}</p>
-        <p className="text-xl font-semibold text-red-600">${price}</p>
+        <p className=" text-blue-900 mb-4">{description}</p>
+        <p className="text-xl font-semibold text-darkRed">${price}</p>
       </div>
     </div>
   );

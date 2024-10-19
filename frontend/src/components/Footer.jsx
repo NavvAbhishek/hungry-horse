@@ -2,7 +2,7 @@ import { assets } from "../assets/assests";
 
 const Footer = () => {
     return (
-      <footer className="bg-cream shadow text-blue">
+      <Footer className="bg-lightCream text-blue">
         <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
           <div className="sm:flex sm:items-center sm:justify-between">
             <a
@@ -14,11 +14,11 @@ const Footer = () => {
                 className="h-28 w-28"
                 alt="Flowbite Logo"
               />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap ">
+              <span className="self-center text-darkBlue text-2xl font-semibold whitespace-nowrap ">
                 Hungry Horse
               </span>
             </a>
-            <ul className="flex flex-wrap items-center mb-6 text-sm font-medium  sm:mb-0 ">
+            <ul className="flex flex-wrap items-center mb-6 text-sm text-darkBlue font-medium  sm:mb-0 ">
               <li>
                 <a href="#" className="hover:underline me-4 md:me-6">
                   About
@@ -41,8 +41,8 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
-          <span className="block text-sm  sm:text-center ">
+          
+          <span className="block text-sm text-darkBlue sm:text-center ">
             © 2024{" "}
             <a href="/" className="hover:underline">
               Hungry Horse™
@@ -50,7 +50,7 @@ const Footer = () => {
             . All Rights Reserved.
           </span>
         </div>
-      </footer>
+      </Footer>
     );
   };
   

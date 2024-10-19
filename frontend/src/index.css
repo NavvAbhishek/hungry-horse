@@ -13,21 +13,21 @@ body {
 }
 
 .blueBtn {
-  @apply bg-blue text-white rounded-md;
+  @apply bg-[#003049] text-white rounded-md;
 }
 .blueBtn:hover {
-  @apply bg-[#002437]; 
+  @apply bg-black; 
 }
 
 .yellowBtn {
-  @apply bg-yellow text-black rounded-md;
+  @apply bg-yellow-500 text-black rounded-md;
 }
 .yellowBtn:hover {
-  @apply bg-blue text-yellow; 
+  @apply bg-[#003049] text-yellow-500; 
 }
 
 .navActive {
-  @apply pb-[1px] border-b-[2.5px] border-red
+  @apply pb-[1px] border-b-[2.5px] border-lightRed
 }
 
 /* Hide scrollbar for all browsers */
