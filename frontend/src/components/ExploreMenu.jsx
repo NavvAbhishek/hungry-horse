@@ -3,7 +3,7 @@ import { menu_list } from "../assets/assests";
 
 const ExploreMenu = ({ category, setCategory }) => {
   return (
-    <div className="flex flex-col gap-5 mx-28">
+    <div className="flex flex-col gap-5 mx-10 sm:mx-24 md:mx-28">
       <h1 className="text-4xl font-bold text-darkBlue">Explore Our Menu</h1>
       <p className="">
         We have many yummy foods for you to try. Pick your favorite and enjoy!
@@ -18,7 +18,7 @@ const ExploreMenu = ({ category, setCategory }) => {
                 )
               }
               key={index}
-              className="flex flex-col justify-center items-center gap-2 cursor-pointer"
+            className="flex-shrink-0 flex flex-col justify-center items-center gap-2 cursor-pointer min-w-[90px]"
             >
               <img
                 src={item.menu_image}
@@ -26,7 +26,7 @@ const ExploreMenu = ({ category, setCategory }) => {
                 className={`w-28 h-28 object-cover rounded-full
                 ${
                   category === item.menu_name
-                    ? "border-2 p-[2px] border-orange "
+                    ? "border-2 p-[2px] border-lightRed "
                     : ""
                 }`}
               />
