@@ -4,20 +4,22 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import PlaceOrder from "./pages/PlaceOrder";
 import Footer from "./components/Footer";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
-    <>
-      <div>
+    <div className="flex flex-col min-h-screen">
+      <div className="flex-grow">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<PlaceOrder />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

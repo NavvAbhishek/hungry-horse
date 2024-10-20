@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { assets } from "../assets/assests";
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { FaBasketShopping } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,10 +55,10 @@ const Navbar = () => {
           </div>
           <div className="flex gap-3">
             <button className="blueBtn py-[5px] px-3 hidden sm:block">
-              Register
+              <Link to="/register">Register</Link>
             </button>
             <button className="blueBtn py-[5px] px-3 hidden sm:block">
-              Sign In
+              <Link to="/login">Login</Link>
             </button>
           </div>
         </div>
@@ -99,8 +100,12 @@ const Navbar = () => {
           <a href="/contact" className="text-2xl hover:underline">
             Contact Us
           </a>
-          <button className="blueBtn py-[8px] px-6">Register</button>
-          <button className="blueBtn py-[8px] px-6">Sign In</button>
+          <button className="blueBtn py-[8px] px-6">
+            <Link to="/register">Register</Link>
+          </button>
+          <button className="blueBtn py-[8px] px-6">
+            <Link to="/login">Login</Link>
+          </button>
         </div>
       )}
     </nav>
