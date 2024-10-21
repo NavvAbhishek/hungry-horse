@@ -1,11 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { assets } from "../assets/assests";
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { FaBasketShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { StoreContext } from "../context/StoreContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { getTotalCartAmount } = useContext(StoreContext);
+
   // Close the mobile menu if the window is resized to desktop view
   useEffect(() => {
     const handleResize = () => {
@@ -53,16 +57,18 @@ const Navbar = () => {
             <Link to="/cart">
               <FaBasketShopping className="h-6 w-6" />
             </Link>
-            <div className="absolute min-w-[10px] min-h-[10px] bg-darkRed rounded-lg top-[-8px] right-[-8px]"></div>
+            <div
+              className={`${
+                getTotalCartAmount() === 0
+                  ? ""
+                  : "absolute min-w-[10px] min-h-[10px] bg-darkRed rounded-lg top-[-8px] right-[-8px]"
+              }`}
+            ></div>
           </div>
-          <div className="flex gap-3">
-            <button className="blueBtn py-[5px] px-3 hidden sm:block">
-              <Link to="/register">Register</Link>
-            </button>
-            <button className="blueBtn py-[5px] px-3 hidden sm:block">
-              <Link to="/login">Login</Link>
-            </button>
-          </div>
+
+          <button className="blueBtn py-[5px] px-3 hidden sm:block">
+            <Link to="/login">Login</Link>
+          </button>
         </div>
         <div className="sm:hidden">
           <button
@@ -102,9 +108,18 @@ const Navbar = () => {
           <a href="/contact" className="text-2xl hover:underline">
             Contact Us
           </a>
-          <button className="blueBtn py-[8px] px-6">
-            <Link to="/register">Register</Link>
-          </button>
+          <div className="relative cursor-pointer">
+            <Link to="/cart">
+              <FaBasketShopping className="h-6 w-6" />
+            </Link>
+            <div
+              className={`${
+                getTotalCartAmount() === 0
+                  ? ""
+                  : "absolute min-w-[10px] min-h-[10px] bg-darkRed rounded-lg top-[-8px] right-[-8px]"
+              }`}
+            ></div>
+          </div>
           <button className="blueBtn py-[8px] px-6">
             <Link to="/login">Login</Link>
           </button>
