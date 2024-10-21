@@ -19,6 +19,10 @@ body {
   @apply bg-black; 
 }
 
+.redBtn{
+  @apply bg-[#780000] text-white rounded-md;
+}
+
 .yellowBtn {
   @apply bg-yellow-500 text-black rounded-md;
 }

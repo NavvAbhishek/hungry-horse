@@ -50,7 +50,9 @@ const Navbar = () => {
         <div className="hidden sm:flex items-center justify-center space-x-8">
           <FaSearch className="h-6 w-6 cursor-pointer" />
           <div className="relative cursor-pointer">
-            <FaBasketShopping className="h-6 w-6" />
+            <Link to="/cart">
+              <FaBasketShopping className="h-6 w-6" />
+            </Link>
             <div className="absolute min-w-[10px] min-h-[10px] bg-darkRed rounded-lg top-[-8px] right-[-8px]"></div>
           </div>
           <div className="flex gap-3">
