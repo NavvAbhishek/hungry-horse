@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
-
+import { Link } from "react-router-dom";
 const Cart = () => {
-  const { cartItems, food_list, removeFromCart,getTotalCartAmount } = useContext(StoreContext);
+  const { cartItems, food_list, removeFromCart, getTotalCartAmount } =
+    useContext(StoreContext);
 
   return (
     <div className="mt-10 mx-auto max-w-screen-md">
@@ -60,15 +61,17 @@ const Cart = () => {
             <hr />
             <div className="flex justify-between">
               <p>Delivery Fee</p>
-              <p>${4}</p>
+              <p>${getTotalCartAmount() === 0 ? 0 : 4}</p>
             </div>
             <hr />
             <div className="flex justify-between font-semibold">
               <p>Total</p>
-              <p>${getTotalCartAmount()+4}</p>
+              <p>
+                ${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 4}
+              </p>
             </div>
             <button className="blueBtn py-2 px-4 w-full mt-4">
-              Proceed to Checkout
+              <Link to="/order">Proceed to Checkout</Link>
             </button>
           </div>
         </div>
