@@ -1,22 +1,41 @@
 import { IoMdAddCircle } from "react-icons/io";
 import { FaBasketShopping } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="h-screen w-1/5 bg-gray-100">
-      <div className="space-y-6 p-4">
-        <div className="flex items-center space-x-2 cursor-pointer">
+    <div className="w-1/5">
+      <div className="space-y-4 p-4">
+        <NavLink
+          to="/add"
+          className={({ isActive }) =>
+            `${isActive ? "bg-red-100" : ""}
+          flex  space-x-2 cursor-pointer p-3`
+          }
+        >
           <IoMdAddCircle size={24} />
           <p className="hidden md:block">Add Items</p>
-        </div>
-        <div className="flex items-center space-x-2 cursor-pointer">
+        </NavLink>
+        <NavLink
+          to="/list"
+          className={({ isActive }) =>
+            `${isActive ? "bg-red-100" : ""}
+          flex  space-x-2 cursor-pointer p-3`
+          }
+        >
           <FaBasketShopping size={24} />
           <p className="hidden md:block">List Items</p>
-        </div>
-        <div className="flex items-center space-x-2 cursor-pointer">
+        </NavLink>
+        <NavLink
+          to="/orders"
+          className={({ isActive }) =>
+            `${isActive ? "bg-red-100" : ""}
+          flex  space-x-2 cursor-pointer p-3`
+          }
+        >
           <FaBasketShopping size={24} />
           <p className="hidden md:block">Orders</p>
-        </div>
+        </NavLink>
       </div>
     </div>
   );

@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.blueBtn {
+  @apply bg-[#003049] text-white rounded-md;
+}
+.blueBtn:hover {
+  @apply bg-black;
+}
+
+.redBtn {
+  @apply bg-[#780000] text-white rounded-md;
+}
+
+.yellowBtn {
+  @apply bg-yellow-500 text-black rounded-md;
+}
+
+.yellowBtn:hover {
+  @apply bg-[#003049] text-yellow-500;
+}
