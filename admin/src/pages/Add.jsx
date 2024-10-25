@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { RiUploadCloud2Line } from "react-icons/ri";
+import { toast } from "react-toastify";
 
 const Add = () => {
   const [image, setImage] = useState(false);
@@ -43,8 +44,9 @@ const Add = () => {
         category: "Salad",
       });
       setImage(false);
+      toast.success(response.data.message)
     } else {
-      console.log("response error");
+      toast.error(response.data.message)
     }
   };
 
