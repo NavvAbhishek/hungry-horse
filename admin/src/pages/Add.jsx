@@ -1,15 +1,17 @@
+import axios from "axios";
 import { useState } from "react";
 import { RiUploadCloud2Line } from "react-icons/ri";
 
 const Add = () => {
   const [image, setImage] = useState(false);
+  const [preview, setPreview] = useState(null); 
   const [data, setData] = useState({
     name: "",
     description: "",
     price: "",
     category: "Salad",
   });
-
+  const url = "http://localhost:4000";
   const onChangeHandler = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -19,7 +21,8 @@ const Add = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setImage(URL.createObjectURL(file));
+      setImage(file); // set the actual file to send to the backend
+      setPreview(URL.createObjectURL(file));
     }
   };
 
@@ -31,6 +34,18 @@ const Add = () => {
     formData.append("price", Number(data.price));
     formData.append("category", data.category);
     formData.append("image", image);
+    const response = await axios.post(`${url}/api/food/add`, formData);
+    if (response.data.success) {
+      setData({
+        name: "",
+        description: "",
+        price: "",
+        category: "Salad",
+      });
+      setImage(false);
+    } else {
+      console.log("response error");
+    }
   };
 
   return (
@@ -41,9 +56,9 @@ const Add = () => {
       >
         <div className="flex flex-col items-start">
           <p className="mb-2">Upload Image</p>
-          {image ? (
+          {preview ? (
             <img
-              src={image}
+            src={preview}
               alt="Preview"
               className="w-24 h-24 object-cover mb-2 rounded-lg"
             />
