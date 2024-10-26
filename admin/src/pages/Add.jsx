@@ -2,8 +2,9 @@ import axios from "axios";
 import { useState } from "react";
 import { RiUploadCloud2Line } from "react-icons/ri";
 import { toast } from "react-toastify";
+import PropTypes from "prop-types";
 
-const Add = () => {
+const Add = ({url}) => {
   const [image, setImage] = useState(false);
   const [preview, setPreview] = useState(null); 
   const [data, setData] = useState({
@@ -12,7 +13,7 @@ const Add = () => {
     price: "",
     category: "Salad",
   });
-  const url = "http://localhost:4000";
+
   const onChangeHandler = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -43,7 +44,7 @@ const Add = () => {
         price: "",
         category: "Salad",
       });
-      setImage(false);
+      setPreview(false);
       toast.success(response.data.message)
     } else {
       toast.error(response.data.message)
@@ -151,5 +152,9 @@ const Add = () => {
     </div>
   );
 };
+
+Add.propTypes = {
+  url: PropTypes.string.isRequired,
+}
 
 export default Add;
