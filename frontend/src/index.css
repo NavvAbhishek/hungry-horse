@@ -38,3 +38,25 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
 }
+
+.navbar-profile {
+  position: relative;
+}
+
+.nav-profile-dropdown {
+  position: absolute;
+  display: none;
+  right: 0;
+  z-index: 1;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #FDF0D5;
+  padding: 10px 18px;
+  border-radius: 4px;
+  border: 1px solid #C1121F;
+  outline: 2px solid white;
+}

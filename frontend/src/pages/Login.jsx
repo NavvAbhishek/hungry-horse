@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import { StoreContext } from "../context/StoreContext";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { url, setToken } = useContext(StoreContext);
-
+  const navigate = useNavigate()
   const [currentState, setCurrentState] = useState("Login");
   const [data, setData] = useState({
     name: "",
@@ -32,6 +33,7 @@ const Login = () => {
     if (res.data.success) {
       setToken(res.data.token);
       localStorage.setItem("token", res.data.token);
+      navigate("/")
     } else {
       alert(res.data.message);
     }

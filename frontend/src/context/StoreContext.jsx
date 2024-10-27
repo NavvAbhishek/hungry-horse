@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { food_list } from "../assets/assests";
 
 export const StoreContext = createContext(null);
@@ -31,6 +31,14 @@ const StoreContextProvider = (props) => {
     }
     return totalAmount;
   };
+
+    //? Check wheather there is a token in localStorge or not
+    useEffect(() => {
+      const getToken = localStorage.getItem("token");
+      if (getToken) {
+        setToken(getToken);
+      }
+    }, []);
 
   const contextValue = {
     food_list,

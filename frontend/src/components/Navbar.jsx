@@ -2,13 +2,16 @@ import { useState, useEffect, useContext } from "react";
 import { assets } from "../assets/assests";
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { FaBasketShopping } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../context/StoreContext";
+import { TbLogout2 } from "react-icons/tb";
+import { FaBagShopping } from "react-icons/fa6";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const navigate = useNavigate()
+  const { getTotalCartAmount,token,setToken } = useContext(StoreContext);
 
   // Close the mobile menu if the window is resized to desktop view
   useEffect(() => {
@@ -25,6 +28,12 @@ const Navbar = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [isOpen]);
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/")
+  };
 
   return (
     <nav className="bg-lightCream text-darkBlue px-6 sm:px-14 md:px-28">
@@ -65,10 +74,33 @@ const Navbar = () => {
               }`}
             ></div>
           </div>
-
-          <button className="blueBtn py-[5px] px-3 hidden sm:block">
-            <Link to="/login">Login</Link>
-          </button>
+          {!token ? (
+            <button className="blueBtn py-[5px] px-3 hidden sm:block">
+              <Link to="/login">Login</Link>
+            </button>
+          ) : (
+            <div className="navbar-profile">
+              <img
+                src={assets.profile}
+                className="w-12 h-12 object-contain"
+                alt=""
+              />
+              <ul className="nav-profile-dropdown">
+                <li className="flex gap-1 items-center cursor-pointer">
+                  <FaBagShopping />
+                  <p>Orders</p>
+                </li>
+                <hr />
+                <li
+                  onClick={logout}
+                  className="flex gap-1 items-center cursor-pointer"
+                >
+                  <TbLogout2 />
+                  <p>Logout</p>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
         <div className="sm:hidden">
           <button
@@ -120,9 +152,33 @@ const Navbar = () => {
               }`}
             ></div>
           </div>
-          <button className="blueBtn py-[8px] px-6">
-            <Link to="/login">Login</Link>
-          </button>
+          {!token ? (
+            <button className="blueBtn py-[8px] px-6">
+              <Link to="/login">Login</Link>
+            </button>
+          ) : (
+            <div className="navbar-profile">
+              <img
+                src={assets.profile}
+                className="w-12 h-12 object-contain"
+                alt=""
+              />
+              <ul className="nav-profile-dropdown">
+                <li className="flex gap-1 items-center cursor-pointer">
+                  <FaBagShopping />
+                  <p>Orders</p>
+                </li>
+                <hr />
+                <li
+                  onClick={logout}
+                  className="flex gap-1 items-center cursor-pointer"
+                >
+                  <TbLogout2 />
+                  <p>Logout</p>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       )}
     </nav>
