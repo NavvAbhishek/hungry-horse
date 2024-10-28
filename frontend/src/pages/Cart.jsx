@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
 import { Link } from "react-router-dom";
 const Cart = () => {
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount } =
+  const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } =
     useContext(StoreContext);
 
   return (
@@ -25,7 +25,7 @@ const Cart = () => {
                 <tr key={index} className="border-b">
                   <td className="p-4">
                     <img
-                      src={item.image}
+                      src={url + "/images/"+ item.image}
                       alt={item.name}
                       className="w-[50px] h-[50px] object-cover rounded-full"
                     />
