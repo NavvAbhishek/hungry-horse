@@ -5,6 +5,7 @@ import Cart from "./pages/Cart";
 import PlaceOrder from "./pages/PlaceOrder";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
+import Verify from "./pages/Verify";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/verify" element={<Verify/>} />
         </Routes>
       </div>
       <Footer />
