@@ -16,21 +16,37 @@ const Orders = ({ url }) => {
     }
   };
 
+  const statusHandler = async (e, orderId) => {
+    const res = await axios.post(url + "/api/order/status", {
+      orderId,
+      status: e.target.value,
+    });
+    if (res.data.success) {
+      await fetchAllOrders();
+    }
+  };
+
   useEffect(() => {
     fetchAllOrders();
   }, []);
 
   return (
     <div className="mt-4 px-4">
-      <h3 className="text-2xl font-bold text-center text-darkBlue mb-4">All Orders</h3>
+      <h3 className="text-2xl font-bold text-center text-darkBlue mb-4">
+        All Orders
+      </h3>
       {orders.map((order, index) => (
         <div
           key={index}
           className="flex flex-col md:flex-row py-8 px-12 mb-4 border rounded-lg shadow-md bg-lightCream space-y-4 md:space-y-0 md:space-x-6"
         >
           {/* Order Image */}
-          <img src={assets.orderImg} className="h-16 w-16 rounded-md" alt="Order" />
-  
+          <img
+            src={assets.orderImg}
+            className="h-16 w-16 rounded-md"
+            alt="Order"
+          />
+
           {/* Order Details */}
           <div className="flex-grow space-y-2">
             <p className="text-sm text-darkRed font-medium">
@@ -41,26 +57,31 @@ const Orders = ({ url }) => {
                 </span>
               ))}
             </p>
-  
+
             <p className="text-lg font-semibold text-darkBlue">
               {order.address.firstName} {order.address.lastName}
             </p>
-  
+
             <div className="text-sm text-darkRed space-y-1">
               <p>{order.address.street},</p>
               <p>
-                {order.address.city}, {order.address.state}, {order.address.country}, {order.address.zipcode}
+                {order.address.city}, {order.address.state},{" "}
+                {order.address.country}, {order.address.zipcode}
               </p>
             </div>
-  
+
             <p className="text-sm text-darkRed">{order.address.phone}</p>
           </div>
-  
+
           {/* Order Summary */}
           <div className="space-y-2 text-right">
             <p className="text-sm text-darkBlue">Items: {order.items.length}</p>
             <p className="text-xl font-bold text-lightRed">${order.amount}</p>
-            <select className="p-2 border rounded-md bg-darkBlue text-white">
+            <select
+              onChange={(e) => statusHandler(e, order._id)}
+              value={order.status}
+              className="p-2 border rounded-md bg-darkBlue text-white"
+            >
               <option value="Food Processing">Food Processing</option>
               <option value="Out for delivery">Out for delivery</option>
               <option value="Delivered">Delivered</option>
@@ -70,7 +91,6 @@ const Orders = ({ url }) => {
       ))}
     </div>
   );
-  
 };
 
 Orders.propTypes = {

@@ -25,8 +25,8 @@ const MyOrders = () => {
   }, [token]);
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl text-darkBlue font-bold mb-4">My Orders</h1>
+    <div className="container px-10 lg:px-48 p-4">
+      <h1 className="text-2xl text-darkBlue text-center font-bold mb-4">My Orders</h1>
       <div className="space-y-5">
         {data.map((order, index) => (
           <div
@@ -58,7 +58,9 @@ const MyOrders = () => {
                 {order.status}
               </p>
             </div>
-            <button className="redBtn px-3 py-2">Track Order</button>
+            <button 
+            onClick={fetchOrders}
+            className="redBtn px-3 py-2">Track Order</button>
           </div>
         ))}
       </div>
