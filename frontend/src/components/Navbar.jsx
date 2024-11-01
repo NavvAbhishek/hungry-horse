@@ -86,7 +86,9 @@ const Navbar = () => {
                 alt=""
               />
               <ul className="nav-profile-dropdown">
-                <li className="flex gap-1 items-center cursor-pointer">
+                <li 
+                onClick={()=> navigate("/myorders")}
+                className="flex gap-1 items-center cursor-pointer">
                   <FaBagShopping />
                   <p>Orders</p>
                 </li>
