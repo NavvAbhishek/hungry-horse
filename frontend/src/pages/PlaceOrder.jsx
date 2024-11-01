@@ -1,6 +1,7 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../context/StoreContext";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const PlaceOrder = () => {
   const { getTotalCartAmount, food_list, cartItems, url, token } =
@@ -49,6 +50,15 @@ const PlaceOrder = () => {
       alert("Error");
     }
   };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (getTotalCartAmount() === 0) {
+      navigate('/cart'); 
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [getTotalCartAmount]);
 
   return (
     <div className="mt-10 mx-auto max-w-screen-lg p-4">

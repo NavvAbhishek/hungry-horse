@@ -2,8 +2,14 @@ import { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
 import { Link } from "react-router-dom";
 const Cart = () => {
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } =
-    useContext(StoreContext);
+  const {
+    cartItems,
+    food_list,
+    removeFromCart,
+    getTotalCartAmount,
+    url,
+    token,
+  } = useContext(StoreContext);
 
   return (
     <div className="mt-10 mx-auto max-w-screen-md">
@@ -25,7 +31,7 @@ const Cart = () => {
                 <tr key={index} className="border-b">
                   <td className="p-4">
                     <img
-                      src={url + "/images/"+ item.image}
+                      src={url + "/images/" + item.image}
                       alt={item.name}
                       className="w-[50px] h-[50px] object-cover rounded-full"
                     />
@@ -71,7 +77,11 @@ const Cart = () => {
               </p>
             </div>
             <button className="blueBtn py-2 px-4 w-full mt-4">
-              <Link to="/order">Proceed to Checkout</Link>
+              {token ? (
+                <Link to="/order">Proceed to Checkout</Link>
+              ) : (
+                <Link to="/login">Login to Checkout</Link>
+              )}
             </button>
           </div>
         </div>
