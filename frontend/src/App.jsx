@@ -6,6 +6,7 @@ import PlaceOrder from "./pages/PlaceOrder";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Verify from "./pages/Verify";
+import MyOrders from "./pages/MyOrders";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/login" element={<Login />} />
           <Route path="/verify" element={<Verify/>} />
+          <Route path="/myorders" element={<MyOrders/>} />
         </Routes>
       </div>
       <Footer />

@@ -3,11 +3,13 @@ import headerImg from "./headerImg.jpg"
 import menu_1 from "./menu_1.jpg"
 import food_1 from "./menu_1.jpg"
 import profile from "./profile.png"
+import orderImg from "./orderImg.png"
 
 export const assets = {
   logo,
   headerImg,
-  profile
+  profile,
+  orderImg
 };
 
 export const menu_list = [
